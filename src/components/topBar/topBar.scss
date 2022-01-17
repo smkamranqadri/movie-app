@@ -1,0 +1,48 @@
+@import '../../variables.scss';
+
+.top-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo-text {
+    margin-left: 32px;
+    color: $primary-dark;
+  }
+
+  .search-bar-container {
+    width: 500px;
+    padding: 32px;
+    background-color: $primary;
+
+    .search-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 30px;
+      padding: 16px;
+      background-color: $primary-dark;
+
+      .search-icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+        color: white;
+      }
+
+      .search-input {
+        width: 400px;
+        height: 24px;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        color: white;
+        font-size: 16px;
+
+        &::placeholder {
+          color: white;
+        }
+      }
+    }
+  }
+}

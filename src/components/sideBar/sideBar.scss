@@ -1,0 +1,30 @@
+@import '../../variables.scss';
+
+.sidebar-container {
+  border-top-right-radius: 50px;
+  background-color: $primary;
+  padding: 60px 0px 0 30px;
+
+  .item-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    color: white;
+    cursor: pointer;
+
+    &.active {
+      background-color: white;
+      border-top-left-radius: 50px;
+      border-bottom-left-radius: 50px;
+      color: $primary
+    }
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+    color: white;
+  }
+}

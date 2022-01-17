@@ -2,9 +2,11 @@ import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import './movieDetail.css';
+import './movieDetail.scss';
 
 import { getMovieDetail } from './actions';
+
+import TopBar from '../../components/topBar';
 
 function MovieDetail() {
   const { id } = useParams();
@@ -18,19 +20,22 @@ function MovieDetail() {
   }, [dispatch, id]);
 
   return (
-    <main style={{ padding: '1rem 0' }}>
-      <Link to="/">
-        <button>Back</button>
-      </Link>
-      {!loading && !error && (
-        <>
-          <h1>{movie.original_title}</h1>
-          <p>{movie.overview}</p>
-        </>
-      )}
-      {loading && <p>Loading</p>}
-      {error && <p>{error}</p>}
-    </main>
+    <>
+      <TopBar />
+      <main style={{ padding: '1rem 0' }}>
+        <Link to="/">
+          <button>Back</button>
+        </Link>
+        {!loading && !error && (
+          <>
+            <h1>{movie.original_title}</h1>
+            <p>{movie.overview}</p>
+          </>
+        )}
+        {loading && <p>Loading</p>}
+        {error && <p>{error}</p>}
+      </main>
+    </>
   );
 }
 

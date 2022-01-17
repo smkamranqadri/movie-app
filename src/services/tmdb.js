@@ -1,5 +1,6 @@
 import http from './http';
 
+export const IMAGE_BASE_URL = 'http://image.tmdb.org/t/p';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = process.env.REACT_APP_API_KEY;
 const DISCOVER =

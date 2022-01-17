@@ -1,0 +1,45 @@
+@import '../../variables.scss';
+
+.toolbar-container {
+  width: 500px;
+  padding: 32px;
+  border-bottom-left-radius: 50px;
+  background-color: $primary;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  select {
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: $primary-dark;
+    flex: 1;
+    padding: 0 1.5em;
+    color: #fff;
+    cursor: pointer;
+  }
+  .select-container {
+    position: relative;
+    display: flex;
+    width: 15em;
+    height: 3em;
+    line-height: 3;
+    background: $primary-dark;
+    overflow: hidden;
+    border-radius: 50px;
+    &::after {
+      content: '\25BC';
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 0 1.5em;
+      background: $primary-dark;
+      color: white;
+      cursor: pointer;
+      pointer-events: none;
+      transition: 0.25s all ease;
+    }
+  }
+}

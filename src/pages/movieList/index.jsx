@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import './movieList.css';
+import './movieList.scss';
 
 import { getMovieList, getMoreMovieList } from './actions';
+import Movie from '../../components/movie';
+import TopBar from '../../components/topBar';
+import SideBar from '../../components/sideBar';
+import ToolBar from '../../components/toolBar';
 
 function MovieList() {
   const dispatch = useDispatch();
@@ -21,23 +24,27 @@ function MovieList() {
   };
 
   return (
-    <main style={{ padding: '1rem 0' }}>
-      <h1>Movie List</h1>
-      {!loading && !error && (
-        <ul>
-          {movies.map((movie, index) => (
-            <li key={index}>
-              <Link to={`/details/${movie.id}`}>{movie.original_title}</Link>
-            </li>
-          ))}
-        </ul>
-      )}
-      {!loading && !error && (
-        <button onClick={() => loadMore()}>Load More</button>
-      )}
-      {loading && <p>Loading</p>}
-      {error && <p>{error}</p>}
-    </main>
+    <>
+      <TopBar />
+      <div className="movie-list-container row">
+        <SideBar />
+        <main className="col-10" >
+          <ToolBar />
+          {!loading && !error && (
+            <div className="row d-flex justify-content-around">
+              {movies.map((movie) => (
+                <Movie movie={movie} />
+              ))}
+            </div>
+          )}
+          {!loading && !error && (
+            <button onClick={() => loadMore()}>Load More</button>
+          )}
+          {loading && <p>Loading</p>}
+          {error && <p>{error}</p>}
+        </main>
+      </div>
+    </>
   );
 }
 
